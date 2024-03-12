@@ -41,7 +41,8 @@ select * from item where item_code in(select item_code,sum(quantiy) from sales_i
 group by item_code having sum(quantity)>50)
 
 with items_sold as
-(select item_code,sum(quantity) as sale_quantity from sales_info where year(date_of_sell)<2020 and month(date_of_sell) between 1 and 2
+(select item_code,sum(quantity) as sale_quantity from sales_info where year(date_of_sell)<=2020 and month(date_of_sell) between 1 and 2
 group by item_code having sum(quantity)>50)
-select items_sold.item_code,items_sold.sale_quantity,item.item_desc from items_sold 
+select item.item_desc,items_sold.sale_quantity from items_sold 
 left join item on items_sold.item_code=item.item_code
+order by item_desc
