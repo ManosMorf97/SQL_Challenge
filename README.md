@@ -1,4 +1,4 @@
-# SQL_Challenge
+# SQL-Challenge
 
 ### The aim of this challenge is to become more advanced on MySQL and MSSQL by executing tasks.
 
